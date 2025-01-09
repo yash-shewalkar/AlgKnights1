@@ -21,8 +21,7 @@ FLOW_ID = os.getenv("FLOW_ID")
 APPLICATION_TOKEN = os.getenv("APPLICATION_TOKEN")
 ENDPOINT = "" 
 
-# You can tweak the flow by adding a tweaks dictionary
-# e.g {"OpenAI-XXXXX": {"model_name": "gpt-4"}}
+
 TWEAKS = {
   "ChatInput-GsEUj": {},
   "ParseData-azmTH": {},

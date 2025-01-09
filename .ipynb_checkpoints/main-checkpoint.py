@@ -1,4 +1,4 @@
-# Note: Replace **<YOUR_APPLICATION_TOKEN>** with your actual Application token
+
 
 import argparse
 import json
@@ -6,17 +6,21 @@ from argparse import RawTextHelpFormatter
 import requests
 from typing import Optional
 import warnings
+import os
+from dotenv import load_dotenv
+load_dotenv()
+# Constants
 try:
     from langflow.load import upload_file
 except ImportError:
     warnings.warn("Langflow provides a function to help you upload files to the flow. Please install langflow to use it.")
     upload_file = None
 
-BASE_API_URL = "https://api.langflow.astra.datastax.com"
-LANGFLOW_ID = "fd6577d9-068e-445f-88e9-cff34168e848"
-FLOW_ID = "97282630-11c3-4bb5-82c3-d10d794f0d5b"
-APPLICATION_TOKEN = "AstraCS:RwluZSLGdxOSQldylfpWcNML:0bd1666422357da6bcbf6eb805af6c37ebfa1179574a75c94d05fc3ceaaaedd4"
-ENDPOINT = "" # You can set a specific endpoint name in the flow settings
+BASE_API_URL = os.getenv("BASE_API_URL")
+LANGFLOW_ID = os.getenv("LANGFLOW_ID")
+FLOW_ID = os.getenv("FLOW_ID")
+APPLICATION_TOKEN = os.getenv("APPLICATION_TOKEN")
+ENDPOINT = ""  # Endpoint name in LangFlow settings, optional.
 
 # You can tweak the flow by adding a tweaks dictionary
 # e.g {"OpenAI-XXXXX": {"model_name": "gpt-4"}}
